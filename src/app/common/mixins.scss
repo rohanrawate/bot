@@ -1,0 +1,14 @@
+/* Mixins */
+@mixin box-shadow($hOffset, $vOffset, $blur, $spread, $color) {
+    -webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+    -moz-box-shadow: $hOffset $vOffset $blur $spread $color;
+    box-shadow: $hOffset $vOffset $blur $spread $color;
+}
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+  }
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+    border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}

@@ -1,0 +1,129 @@
+/* Media queries for small, medium & large devices */
+@media only screen and (max-width: 320px) {
+  .chat-parent-container {
+    left: calc(100% - 310px);
+    top: calc(100% - 530px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 300px;
+    position: fixed;
+    .header {
+      img {
+        margin-left: 5px;
+      }
+    }
+  }
+  .body {
+    height: 400px;
+  }
+  .card {
+    max-width: 180px;
+  }
+  .bot-initial{
+    margin: 15px 0;
+  }
+  .card-content {
+    font-size: 13px;
+  }
+  .main-image {
+    width: 80%;
+    margin: 0 0 0 16%;
+  }
+  .material-icons {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .icon {
+    margin-left: 10px;
+  }
+  .typing {
+    font-size: 13px;
+    input[type=text] {
+      font-size: 13px;
+      width:75%;
+    }
+    .actions {
+      padding: 16px 14px;
+    }
+  }
+  .card-content {
+    overflow-x: auto;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .chat-parent-container {
+    left: calc(100% - 372px);
+    top: calc(100% - 548px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 370px;
+    position: fixed;
+  }
+  .body {
+    height: 425px;
+  }
+  .card {
+    max-width: 260px;
+  }
+  .main-image {
+    width: 330px;
+  }
+  .card-content {
+    overflow-x: auto;
+  }
+  .typing {
+    input[type=text] {
+      width:75%;
+    }
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+  .chat-parent-container {
+    left: calc(100% - 420px);
+    top: calc(100% - 548px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 410px;
+    position: fixed;
+  }
+  .body {
+    height: 425px;
+  }
+  .card {
+    max-width: 260px;
+  }
+  .main-image {
+    width: 330px;
+  }
+  .card-content {
+    overflow-x: auto;
+  }
+  .typing {
+    input[type=text] {
+      width:75%;
+    }
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .chat-parent-container {
+    left: calc(100% - 520px);
+    top: calc(100% - 548px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 500px;
+    position: fixed;
+  }
+  .body {
+    height: 425px;
+  }
+}
+
+// @media only screen 
+// and (min-width : 768px) 
+// and (max-width : 1024px) 
+// and (orientation : landscape) {
+
+// }

@@ -1,0 +1,226 @@
+[{
+    "monthlyWages" : "30",	
+    "employersContribution": "5 sen",	
+    "employeesContribution": "5 sen",	
+    "total": "10 sen"
+},{
+    "monthlyWages" : "50",	
+    "employersContribution": "10 sen",	
+    "employeesContribution": "10 sen",	
+    "total": "20 sen"
+},{
+    "monthlyWages" : "70",	
+    "employersContribution": "15 sen",	
+    "employeesContribution": "15 sen",	
+    "total": "30 sen"
+},{
+    "monthlyWages" : "100",	
+    "employersContribution": "20 sen",	
+    "employeesContribution": "20 sen",	
+    "total": "40 sen"
+},{
+    "monthlyWages" : "140",	
+    "employersContribution": "25 sen",	
+    "employeesContribution": "25 sen",	
+    "total": "50 sen"
+},{
+    "monthlyWages" : "200",	
+    "employersContribution": "35 sen",	
+    "employeesContribution": "35 sen",	
+    "total": "70 sen"
+},{
+    "monthlyWages" : "300",	
+    "employersContribution": "50 sen",	
+    "employeesContribution": "50 sen",	
+    "total": "RM1.00"
+},{
+    "monthlyWages" : "400",	
+    "employersContribution": "70 sen",	
+    "employeesContribution": "70 sen",	
+    "total": "RM1.40"
+},{
+    "monthlyWages" : "500",	
+    "employersContribution": "90 sen",	
+    "employeesContribution": "90 sen",	
+    "total": "RM1.80"
+},{
+    "monthlyWages" : "600",	
+    "employersContribution": "RM1.10",	
+    "employeesContribution": "RM1.10",	
+    "total": "RM2.20"
+},{
+    "monthlyWages" : "700",	
+    "employersContribution": "RM1.30",	
+    "employeesContribution": "RM1.30",	
+    "total": "RM2.60"
+},{
+    "monthlyWages" : "800",	
+    "employersContribution": "RM1.50",	
+    "employeesContribution": "RM1.50",	
+    "total": "RM3.00"
+},{
+    "monthlyWages" : "900",	
+    "employersContribution": "RM1.70",	
+    "employeesContribution": "RM1.70",	
+    "total": "RM3.40"
+},{
+    "monthlyWages" : "1000",	
+    "employersContribution": "RM1.90",	
+    "employeesContribution": "RM1.90",	
+    "total": "RM3.80"
+},{
+    "monthlyWages" : "1100",	
+    "employersContribution": "RM2.10",	
+    "employeesContribution": "RM2.10",	
+    "total": "RM4.20"
+},{
+    "monthlyWages" : "1200",	
+    "employersContribution": "RM2.30",	
+    "employeesContribution": "RM2.30",	
+    "total": "RM4.60"
+},{
+    "monthlyWages" : "1300",	
+    "employersContribution": "RM2.50",	
+    "employeesContribution": "RM2.50",	
+    "total": "RM5.00"
+},{
+    "monthlyWages" : "1400",	
+    "employersContribution": "RM2.70",	
+    "employeesContribution": "RM2.70",	
+    "total": "RM5.40"
+},{
+    "monthlyWages" : "1500",	
+    "employersContribution": "RM2.90",	
+    "employeesContribution": "RM2.90",	
+    "total": "RM5.80"
+},{
+    "monthlyWages" : "1600",	
+    "employersContribution": "RM3.10",	
+    "employeesContribution": "RM3.10",	
+    "total": "RM6.20"
+},{
+    "monthlyWages" : "1700",	
+    "employersContribution": "RM3.30",	
+    "employeesContribution": "RM3.30",	
+    "total": "RM6.60"
+},{
+    "monthlyWages" : "1800",	
+    "employersContribution": "RM3.50",	
+    "employeesContribution": "RM3.50",	
+    "total": "RM7.00"
+},{
+    "monthlyWages" : "1900",	
+    "employersContribution": "RM3.70",	
+    "employeesContribution": "RM3.70",	
+    "total": "RM7.40"
+},{
+    "monthlyWages" : "2000",	
+    "employersContribution": "RM3.90",	
+    "employeesContribution": "RM3.90",	
+    "total": "RM7.80"
+},{
+    "monthlyWages" : "2100",	
+    "employersContribution": "RM4.10",	
+    "employeesContribution": "RM4.10",	
+    "total": "RM8.20"
+},{
+    "monthlyWages" : "2200",	
+    "employersContribution": "RM4.30",	
+    "employeesContribution": "RM4.30",	
+    "total": "RM8.60"
+},{
+    "monthlyWages" : "2300",	
+    "employersContribution": "RM4.50",	
+    "employeesContribution": "RM4.50",	
+    "total": "RM9.00"
+},{
+    "monthlyWages" : "2400",	
+    "employersContribution": "RM4.70",	
+    "employeesContribution": "RM4.70",	
+    "total": "RM9.40"
+},{
+    "monthlyWages" : "2500",	
+    "employersContribution": "RM4.90",	
+    "employeesContribution": "RM4.90",	
+    "total": "RM9.80"
+},{
+    "monthlyWages" : "2600",	
+    "employersContribution": "RM5.10",	
+    "employeesContribution": "RM5.10",	
+    "total": "RM10.20"
+},{
+    "monthlyWages" : "2700",	
+    "employersContribution": "RM5.30",	
+    "employeesContribution": "RM5.30",	
+    "total": "RM10.60"
+},{
+    "monthlyWages" : "2800",	
+    "employersContribution": "RM5.50",	
+    "employeesContribution": "RM5.50",	
+    "total": "RM11.00"
+},{
+    "monthlyWages" : "2900",	
+    "employersContribution": "RM5.70",	
+    "employeesContribution": "RM5.70",	
+    "total": "RM11.40"
+},{
+    "monthlyWages" : "3000",	
+    "employersContribution": "RM5.90",	
+    "employeesContribution": "RM5.90",	
+    "total": "RM11.80"
+},{
+    "monthlyWages" : "3100",	
+    "employersContribution": "RM6.10",	
+    "employeesContribution": "RM6.10",	
+    "total": "RM12.20"
+},{
+    "monthlyWages" : "3200",	
+    "employersContribution": "RM6.30",	
+    "employeesContribution": "RM6.30",	
+    "total": "RM12.60"
+},{
+    "monthlyWages" : "3300",	
+    "employersContribution": "RM6.50",	
+    "employeesContribution": "RM6.50",	
+    "total": "RM13.00"
+},{
+    "monthlyWages" : "3400",	
+    "employersContribution": "RM6.70",	
+    "employeesContribution": "RM6.70",	
+    "total": "RM13.40"
+},{
+    "monthlyWages" : "3500",	
+    "employersContribution": "RM6.90",	
+    "employeesContribution": "RM6.90",	
+    "total": "RM13.80"
+},{
+    "monthlyWages" : "3600",	
+    "employersContribution": "RM7.10",	
+    "employeesContribution": "RM7.10",	
+    "total": "RM14.20"
+},{
+    "monthlyWages" : "3700",	
+    "employersContribution": "RM7.30",	
+    "employeesContribution": "RM7.30",	
+    "total": "RM14.60"
+},{
+    "monthlyWages" : "3800",	
+    "employersContribution": "RM7.50",	
+    "employeesContribution": "RM7.50",	
+    "total": "RM15.00"
+},{
+    "monthlyWages" : "3900",	
+    "employersContribution": "RM7.70",	
+    "employeesContribution": "RM7.70",	
+    "total": "RM15.40"
+},{
+    "monthlyWages" : "4000",	
+    "employersContribution": "RM7.90",	
+    "employeesContribution": "RM7.90",	
+    "total": "RM15.80"
+},{
+    "monthlyWages" : "4100",	
+    "employersContribution": "RM7.90",	
+    "employeesContribution": "RM7.90",	
+    "total": "RM15.80"
+}]	

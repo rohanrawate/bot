@@ -1,0 +1,231 @@
+<div class="bot-boundary">
+  <div class="chat-parent-container" [@changeDivSize]='currentState'>
+    <!--  cdkDragBoundary=".bot-boundary" cdkDrag -->
+    <!-- header -->
+    <div class="flex header">
+      <div class="w-50">
+          <img class="" src="https://6biz.ai/wp-content/uploads/2019/03/cropped-170-X-170.png" alt="6Biz">
+      </div>
+      <div class="flex items-center justify-end w-50 refresh-close">
+        <div class="white pointer" (click)="resetState()"><i class="material-icons">refresh</i></div>
+        <div class="white pointer" (click)="changeState()"><i class="material-icons">close</i></div>
+      </div>
+    </div>
+    <!-- body -->
+    <div class="body" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div class="flex bot-initial"> 
+        <div class="icon">
+          <i class="material-icons white">face</i>
+        </div>
+        <div style="margin-left: 4px;">
+          <mat-card  class="card">
+            <mat-card-content class="card-content">Hi. I am 6Biz Bot! I can make below tasks easier for our website visitors.</mat-card-content>
+          </mat-card> 
+        </div>
+      </div>
+      <div>
+        <mat-card class="card featuresListCard">
+            <mat-card-content class="card-content">
+                <ul class="featuresList">
+                    <li>Accounting</li>
+                    <li>Tax</li>
+                    <li>Secretarial</li>
+                    <li>Payroll</li>
+                    <li>Audit</li>
+                  </ul> 
+            </mat-card-content>
+        </mat-card>
+      </div>  
+      <div class="msg-row" *ngFor="let msg of msgArr;">
+        <div *ngIf="msg.user" class="user-msg">
+          <mat-card class="user card">
+            <mat-card-content class="card-content" [innerHTML]="msg.user"></mat-card-content>
+          </mat-card>
+        </div>
+        <div *ngIf="msg.bot" class="bot-msg">
+          <div class="icon" *ngIf="!msg.same">
+              <!-- <img width="20" src="../assets/virtual-assistant.png" alt="va" /> -->
+              <i class="material-icons white">face</i>
+          </div>
+          <div class="empty-icon" *ngIf="msg.same"></div>
+          <div>
+            <!--NOT isBOTArray -->
+            <mat-card class="card" *ngIf="!isBotArr">
+              <div *ngIf="loadingQuestion != msg.bot">
+                  <mat-card-content class="card-content" [innerHTML]="msg.bot"></mat-card-content>
+              </div>
+              <div *ngIf="!showLoading  && presentQuestion == msg.bot">
+                <mat-card-content class="card-content" [innerHTML]="msg.bot"></mat-card-content>
+                <!-- btn options -->
+                <mat-card-content class="card-content" *ngIf="presentQuestion == msg.bot && btnOptions.length > 0 && presentQuestion != 'choose your Chargeable Income range'"> 
+                  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                    <mat-radio-button class="example-radio-button" *ngFor="let option of btnOptions" [value]="option.payload"
+                      (change)="radioClickChange($event, option)">
+                      {{option.title}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </mat-card-content>
+              
+                <mat-card-content class="card-content drop-down-card" *ngIf="presentQuestion == msg.bot && options.length > 0 && presentQuestion == 'choose your Chargeable Income range'"> 
+                  <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="taxRateSelected($event)">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </form>
+                </mat-card-content>
+              </div>
+            </mat-card>
+
+          <!-- isBOTArray -->
+            <mat-card class="card" *ngIf="isBotArr">
+              <div *ngIf="loadingQuestion != msg.bot">
+                  <mat-card-content class="card-content" [innerHTML]="msg.bot"></mat-card-content>
+              </div>
+              <div *ngIf="!showLoading  && presentQuestion == msg.bot">
+                <mat-card-content class="card-content" [innerHTML]="msg.bot"></mat-card-content>
+                <mat-card-content class="card-content" *ngIf="presentQuestion == msg.bot && btnOptions.length > 0"> 
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" *ngIf="!showSlider">
+                      <mat-radio-button class="example-radio-button" *ngFor="let option of btnOptions" [value]="option.payload"
+                        (change)="radioClickChange($event, option)">
+                        {{option.title}}
+                      </mat-radio-button>
+                    </mat-radio-group>
+                </mat-card-content>
+                <mat-card-content style="padding-top: 18px;" class="card-content" *ngIf="presentQuestion == msg.bot && presentQuestion != 'EIS contribution rate for selected range' && btnOptions.length == 0">    
+                    <mat-slider *ngIf="showSlider"
+                  class="example-margin"
+                  [max]="5000"
+                  [min]="0"
+                  [step]="1"
+                  [thumbLabel]="true"
+                  [(ngModel)]="sliderValue"
+                  (slideend)="onSliderChange()"
+                  [vertical]="false">
+                </mat-slider>  
+                </mat-card-content>
+                <mat-card-content class="card-content" *ngIf="presentQuestion == msg.bot && presentQuestion == 'EIS contribution rate for selected range' && btnOptions.length == 0">
+                    <table style="width:100%">
+                        <tr>
+                          <th>Employers Contribution</th>
+                          <th>Employees Contribution</th> 
+                          <th>Total</th>
+                        </tr>
+                        <tr *ngFor="let obj of dataSource">
+                          <td style="text-align: center">{{obj.employersContribution}}</td>
+                          <td style="text-align: center">{{obj.employeesContribution}}</td>
+                          <td style="text-align: center">{{obj.total}}</td>
+                        </tr>
+                      </table> 
+                </mat-card-content>
+              </div>
+            </mat-card>
+
+          </div>
+        </div>
+      </div>  
+
+      <!-- Loader start -->
+      <div class="bot-msg" *ngIf="showLoading">
+          <div class="icon">
+              <i class="material-icons white">face</i>
+          </div>
+          <mat-card class="card">
+              
+              <div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+              </div>
+          </mat-card>
+      </div>
+      
+    </div>
+    <!-- footer -->
+    
+    <div>
+        <div [@fadeInOut] class="hero" id="emailDivId" *ngIf="showHideEmailMsg">Not a valid Email</div>
+        <div [@fadeInOut] class="contactMsgDiv" id="contactDivId" *ngIf="showHideContactMsg">Number cannot be less than 5
+          or
+          greater than 13 digits</div>
+        <div [@fadeInOut] class="nameMsgDiv" id="nameDivId" *ngIf="showHideNameMsg">Name cannot be less than 2 characters
+      </div>
+      <div class="typing">
+          <!-- <input type="text" maxlength="256"  *ngIf="presentQuestion === 'name'"
+          placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="name"
+          (keyup.enter)="onName()">
+          <input type="text" maxlength="256"  *ngIf="presentQuestion === 'can you please share your email id'"
+          placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="email"
+          (keyup.enter)="onEmail()">
+          <input type="text" numbersOnly maxlength="256" *ngIf="presentQuestion === 'Can you please provide your contact number'"
+          placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="contactNo"
+          (keyup.enter)="onContactNo()">  
+          <input type="text" maxlength="256" *ngIf="presentQuestion !== 'name' && this.presentQuestion !== 'Can you please provide your contact number' && this.presentQuestion !== 'can you please share your email id'"
+          placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="userQuery"
+          (keyup.enter)="onUserQuery()"> -->
+          <!-- <input type="text" numbersOnly maxlength="256"
+          placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="contactNo"
+          (keyup.enter)="onContactNo()">  -->
+          <input [numbersOnly]="msgArr.length === 3 ? true : null" type="text"  maxlength="256" placeholder="Type your message here" style="color: rgb(0, 0, 0);" [(ngModel)]="userQuery"
+          (keyup.enter)="onInput()">
+
+        <div class="actions">
+          <div class="send" *ngIf="presentQuestion === 'name'" (click)="onName()">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" class="active"
+              style="fill: #aaa;">
+              <path
+                d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z">
+              </path>
+            </svg>
+          </div><div class="send" *ngIf="presentQuestion === 'can you please share your email id'" (click)="onEmail()">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" class="active"
+                style="fill: #aaa;">
+                <path
+                  d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z">
+                </path>
+              </svg>
+            </div><div class="send" *ngIf="presentQuestion === 'Can you please provide your contact number'" (click)="onName()">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" class="active"
+                  style="fill: #aaa;">
+                  <path
+                    d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z">
+                  </path>
+                </svg>
+              </div>
+          <div class="send" *ngIf="presentQuestion !== 'name' && this.presentQuestion !== 'Can you please provide your contact number' && this.presentQuestion !== 'can you please share your email id'" (click)="onUserQuery()">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" class="active"
+              style="fill: #aaa;">
+              <path
+                d="M22,11.7V12h-0.1c-0.1,1-17.7,9.5-18.8,9.1c-1.1-0.4,2.4-6.7,3-7.5C6.8,12.9,17.1,12,17.1,12H17c0,0,0-0.2,0-0.2c0,0,0,0,0,0c0-0.4-10.2-1-10.8-1.7c-0.6-0.7-4-7.1-3-7.5C4.3,2.1,22,10.5,22,11.7z">
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>  
+    </div> 
+
+
+  </div>
+  
+  <button [@changeBtn]='currentState' class="chat-button"
+    (click)="changeState()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="chat-icon">
+      <path
+        d="M9.37,1.34H10.8a8.2,8.2,0,0,1,0,16.39H9.37a10,10,0,0,1-2.68-.45c-.55-.15-2.23,1.81-2.63,1.36s.05-2.79-.41-3.23q-.28-.27-.54-.57A8.2,8.2,0,0,1,9.37,1.34Z"
+        style="fill: none;"></path>
+      <line x1="6.37" y1="7.04" x2="12.58" y2="7.04" style="fill: none; stroke-linecap: round;"></line>
+      <line x1="6.37" y1="9.66" x2="14.31" y2="9.66" style="fill: none; stroke-linecap: round;"></line>
+      <line x1="6.37" y1="12.28" x2="11.42" y2="12.28" style="fill: none; stroke-linecap: round;"></line>
+    </svg>
+    <span class="chat-label">TALK TO US</span>
+  </button>
+</div>
